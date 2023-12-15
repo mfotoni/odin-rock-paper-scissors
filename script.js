@@ -10,6 +10,7 @@ console.log("Computer chose: ", computerSelection);
 
 function getPlayerChoice(playerSelection) {
   // Convert to lowercase
+  playerSelection = window.prompt("Rock, paper or scissors?");
   const choice = playerSelection.toLowerCase();
 
   if (choice === "rock" || choice === "paper" || choice === "scissors") {
@@ -19,7 +20,7 @@ function getPlayerChoice(playerSelection) {
   }
 }
 
-const playerChoice = getPlayerChoice("ROCK");
+const playerChoice = getPlayerChoice();
 const playerSelection = playerChoice;
 console.log("Player chose: ", playerChoice);
 
