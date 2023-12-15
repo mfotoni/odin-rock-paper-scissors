@@ -1,51 +1,12 @@
-// function getPlayerChoice(playerSelection) {
-//   // Convert to lowercase
-//   // playerSelection = window.prompt("Rock, paper or scissors?");
-//   const choice = playerSelection;
-//   document.getElementById("rock").addEventListener("click", function () {
-//     playerSelection("rock");
-//   });
-
-//   if (choice === "rock" || choice === "paper" || choice === "scissors") {
-//     return choice;
-//   } else {
-//     console.log("Invalid choice. Please choose rock, paper, or scissors");
-//   }
-// }
 let playerSelection;
-
-document.getElementById("rock").addEventListener("click", function () {
-  playerSelection = "rock";
-  playRound();
-});
-document.getElementById("paper").addEventListener("click", function () {
-  playerSelection = "paper";
-  playRound();
-});
-document.getElementById("scissors").addEventListener("click", function () {
-  playerSelection = "scissors";
-  playRound();
-});
-
-// const playerChoice = getPlayerChoice();
-// const playerSelection = playerChoice;
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
+
 const computerSelection = getComputerChoice();
-
-// const computerChoice = getComputerChoice();
-console.log("Computer chose: ", computerSelection);
-
-function playRound() {
-  // Chama a função playRound com as escolhas do jogador e do computador
-  const result = playRound(playerSelection, computerSelection);
-  console.log("Player chose: ", playerSelection);
-  console.log(result);
-}
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
@@ -72,9 +33,25 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// document.getElementById("rock").addEventListener("click", function () {
-//   playRound(playerSelection, computerSelection);
-// });
-// Example usage
-// playRound(playerChoice, computerChoice);
-// console.log(playRound(playerSelection, computerSelection));
+function playGame(playerSelection) {
+  // Chama a função playRound com as escolhas do jogador e do computador
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerSelection, computerSelection);
+
+  console.log("Player chose: ", playerSelection);
+  console.log("Computer chose: ", computerSelection);
+  console.log(result);
+}
+
+document.getElementById("rock").addEventListener("click", function () {
+  playerSelection = "rock";
+  playGame("rock");
+});
+document.getElementById("paper").addEventListener("click", function () {
+  playerSelection = "paper";
+  playGame("paper");
+});
+document.getElementById("scissors").addEventListener("click", function () {
+  playerSelection = "scissors";
+  playGame("scissors");
+});
