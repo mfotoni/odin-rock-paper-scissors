@@ -16,11 +16,19 @@ let playerSelection;
 
 document.getElementById("rock").addEventListener("click", function () {
   playerSelection = "rock";
+  playRound();
+});
+document.getElementById("paper").addEventListener("click", function () {
+  playerSelection = "paper";
+  playRound();
+});
+document.getElementById("scissors").addEventListener("click", function () {
+  playerSelection = "scissors";
+  playRound();
 });
 
 // const playerChoice = getPlayerChoice();
 // const playerSelection = playerChoice;
-console.log("Player chose: ", playerSelection);
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
@@ -32,10 +40,14 @@ const computerSelection = getComputerChoice();
 // const computerChoice = getComputerChoice();
 console.log("Computer chose: ", computerSelection);
 
-function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection;
-  computerSelection = computerSelection;
+function playRound() {
+  // Chama a função playRound com as escolhas do jogador e do computador
+  const result = playRound(playerSelection, computerSelection);
+  console.log("Player chose: ", playerSelection);
+  console.log(result);
+}
 
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
     return "You Lose! Paper beats Rock";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -60,6 +72,9 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+// document.getElementById("rock").addEventListener("click", function () {
+//   playRound(playerSelection, computerSelection);
+// });
 // Example usage
 // playRound(playerChoice, computerChoice);
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
