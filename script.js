@@ -1,18 +1,26 @@
-function getPlayerChoice(playerSelection) {
-  // Convert to lowercase
-  playerSelection = window.prompt("Rock, paper or scissors?");
-  const choice = playerSelection.toLowerCase();
+// function getPlayerChoice(playerSelection) {
+//   // Convert to lowercase
+//   // playerSelection = window.prompt("Rock, paper or scissors?");
+//   const choice = playerSelection;
+//   document.getElementById("rock").addEventListener("click", function () {
+//     playerSelection("rock");
+//   });
 
-  if (choice === "rock" || choice === "paper" || choice === "scissors") {
-    return choice;
-  } else {
-    console.log("Invalid choice. Please choose rock, paper, or scissors");
-  }
-}
+//   if (choice === "rock" || choice === "paper" || choice === "scissors") {
+//     return choice;
+//   } else {
+//     console.log("Invalid choice. Please choose rock, paper, or scissors");
+//   }
+// }
+let playerSelection;
 
-const playerChoice = getPlayerChoice();
-const playerSelection = playerChoice;
-console.log("Player chose: ", playerChoice);
+document.getElementById("rock").addEventListener("click", function () {
+  playerSelection = "rock";
+});
+
+// const playerChoice = getPlayerChoice();
+// const playerSelection = playerChoice;
+console.log("Player chose: ", playerSelection);
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
@@ -25,8 +33,8 @@ const computerSelection = getComputerChoice();
 console.log("Computer chose: ", computerSelection);
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-  computerSelection = computerSelection.toLowerCase();
+  playerSelection = playerSelection;
+  computerSelection = computerSelection;
 
   if (playerSelection === "rock" && computerSelection === "paper") {
     return "You Lose! Paper beats Rock";
