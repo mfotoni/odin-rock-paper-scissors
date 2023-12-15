@@ -1,13 +1,3 @@
-function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
-}
-const computerSelection = getComputerChoice();
-
-// const computerChoice = getComputerChoice();
-console.log("Computer chose: ", computerSelection);
-
 function getPlayerChoice(playerSelection) {
   // Convert to lowercase
   playerSelection = window.prompt("Rock, paper or scissors?");
@@ -23,6 +13,16 @@ function getPlayerChoice(playerSelection) {
 const playerChoice = getPlayerChoice();
 const playerSelection = playerChoice;
 console.log("Player chose: ", playerChoice);
+
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+}
+const computerSelection = getComputerChoice();
+
+// const computerChoice = getComputerChoice();
+console.log("Computer chose: ", computerSelection);
 
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
