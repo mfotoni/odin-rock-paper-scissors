@@ -10,37 +10,33 @@ const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "paper") {
-    return "You Lose! Paper beats Rock";
+    return " You Lose! Paper beats Rock";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "You Win! Rock beats Scissors";
-  } else if (playerSelection === "rock" && computerSelection === "rock") {
-    return "It's a tie!";
+    return " You Win! Rock beats Scissors";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "You Win! Paper beats Rock";
-  } else if (playerSelection === "paper" && computerSelection === "paper") {
-    return "DRAW";
+    return " You Win! Paper beats Rock";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return "You Lose! Scissors beats Paper";
+    return " You Lose! Scissors beats Paper";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return "You Lose! Rock beats Scissors";
+    return " You Lose! Rock beats Scissors";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "You Win! Scissors beats Paper";
-  } else if (
-    playerSelection === "scissors" &&
-    computerSelection === "scissors"
-  ) {
-    return "DRAW";
+    return " You Win! Scissors beats Paper";
+  } else if (playerSelection === computerSelection) {
+    return " DRAW";
   }
 }
 
 function playGame(playerSelection) {
   // Chama a função playRound com as escolhas do jogador e do computador
   const computerSelection = getComputerChoice();
-  const result = playRound(playerSelection, computerSelection);
+  // const result = playRound(playerSelection, computerSelection);
 
-  console.log("Player chose: ", playerSelection);
-  console.log("Computer chose: ", computerSelection);
-  console.log(result);
+  div.textContent =
+    "Player chose: " +
+    playerSelection +
+    " Computer chose: " +
+    computerSelection;
+  subDiv.textContent = playRound(playerSelection, computerSelection);
 }
 
 document.getElementById("rock").addEventListener("click", function () {
@@ -55,3 +51,9 @@ document.getElementById("scissors").addEventListener("click", function () {
   playerSelection = "scissors";
   playGame("scissors");
 });
+
+const div = document.createElement("div");
+document.body.append(div);
+
+const subDiv = document.createElement("div");
+document.body.append(subDiv);
