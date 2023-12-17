@@ -1,4 +1,6 @@
 let playerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
@@ -9,27 +11,28 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "rock" && computerSelection === "paper") {
-    return " You Lose! Paper beats Rock";
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return " You Win! Rock beats Scissors";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return " You Win! Paper beats Rock";
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    return " You Lose! Scissors beats Paper";
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    return " You Lose! Rock beats Scissors";
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return " You Win! Scissors beats Paper";
+  if (
+    (playerSelection === "rock" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "rock")
+  ) {
+    computerScore += 1;
+    return ` Your Lose! ${computerSelection} beats ${playerSelection}, computer score: ${computerScore}, player score: ${playerScore}`;
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    playerScore += 1;
+    return ` You Win! ${playerSelection} beats ${computerSelection}, computer score: ${computerScore}, player score: ${playerScore} `;
   } else if (playerSelection === computerSelection) {
-    return " DRAW";
+    return ` DRAW computer score: ${computerScore}, player score: ${playerScore}`;
   }
 }
 
 function playGame(playerSelection) {
   // Chama a função playRound com as escolhas do jogador e do computador
   const computerSelection = getComputerChoice();
-  // const result = playRound(playerSelection, computerSelection);
 
   div.textContent =
     "Player chose: " +
@@ -37,6 +40,19 @@ function playGame(playerSelection) {
     " Computer chose: " +
     computerSelection;
   subDiv.textContent = playRound(playerSelection, computerSelection);
+
+  if (playerScore === 5) {
+    alert("You Win the game! Congratulations");
+    resetGame();
+  } else if (computerScore === 5) {
+    alert("The computer Win the game! get good");
+    resetGame();
+  }
+}
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
 }
 
 document.getElementById("rock").addEventListener("click", function () {
