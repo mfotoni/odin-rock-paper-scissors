@@ -68,8 +68,5 @@ document.getElementById("scissors").addEventListener("click", function () {
   playGame("scissors");
 });
 
-const div = document.createElement("div");
-document.body.append(div);
-
-const subDiv = document.createElement("div");
-document.body.append(subDiv);
+const div = document.querySelector(".choices");
+const subDiv = document.querySelector(".scores");
